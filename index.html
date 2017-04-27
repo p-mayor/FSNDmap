@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <title>Fun Thing Finder</title>
     <link href="css/style.css" rel="stylesheet">
   </head>
   <body>
     <div class="container">
       <div class="options-box">
-        <h1>Find Your New Seattle Home</h1>
+        <h1>Find Fun in Seattle</h1>
         <div>
           <input id="show-listings" type="button" value="Show Listings">
           <input id="hide-listings" type="button" value="Hide Listings">
@@ -41,16 +42,18 @@
         <hr>
         <div>
           <span class="text">Search for nearby places</span>
-          <input id="places-search" type="text" placeholder="Ex: Pizza delivery in NYC">
+          <input id="places-search" type="text" placeholder="Ex: Pizza delivery in Seattle">
           <input id="go-places" type="button" value="Go">
         </div>
-        <div>
-          Location list incoming
-        </div>
+        <h1>Current Fun Thing List</h1>
+        <ul data-bind="foreach: markers">
+          <li data-bind="text: name, visible: vis"></li>
+        </ul>
       </div>
       <div id="map"></div>
     </div>
     <script src="js/map.js"></script>
+    <script src="js/lib/knockout-3.2.0.js"></script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyCoD7Z1yUOvwDLIwIQXgW18D8wQZTirfUk&v=3&callback=initMap">
     </script>
